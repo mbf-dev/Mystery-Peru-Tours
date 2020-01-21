@@ -1,1 +1,3 @@
+---
 templateKey: index-page
+---
