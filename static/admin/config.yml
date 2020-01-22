@@ -246,9 +246,14 @@ collections:
   - label: "setting"
     name: "setting"
     files:
-      - label: "Meta"
+      - file: "src/pages/setting/company.md"
+        label: "Meta"
         name: "meta"
-        file: "src/pages/setting/meta.md"
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Intro, name: intro, widget: markdown }
+          - { label: "Logo", name: "logo", widget: image }
+          - { label: "Nombre", name: "Nombre", widget: string }
+          - { label: "Lema", name: "Lema", widget: string }
+          - { label: "Descripción", name: "descripcion", widget: text }
+          - { label: "Dirección", name: "direccion", widget: string }
+          - { label: "Teléfono", name: "phone_primay", widget: string }
+          - { label: "Correo", name: "email_primary", widget: string }
