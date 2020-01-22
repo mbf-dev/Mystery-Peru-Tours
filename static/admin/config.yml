@@ -250,11 +250,5 @@ collections:
         name: "meta"
         file: "src/pages/setting/meta.md"
         fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
-              default: "hidden-page",
-            }
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: markdown }
