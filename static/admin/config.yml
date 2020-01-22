@@ -247,8 +247,8 @@ collections:
     name: "setting"
     files:
       - file: "src/pages/setting/company.md"
-        label: "Meta"
-        name: "meta"
+        label: "Company"
+        name: "company"
         fields:
           - { label: "Logo", name: "logo", widget: image }
           - { label: "Nombre", name: "Nombre", widget: string }
