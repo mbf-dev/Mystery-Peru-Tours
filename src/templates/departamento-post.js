@@ -7,11 +7,6 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
-async function Imagenes(name) {
-  const { default: Hello } = await import("../img/logo.svg");
-
-  return <img src={Hello} />;
-}
 
 export const DepartamentoPostTemplate = ({
   content,
@@ -34,7 +29,7 @@ export const DepartamentoPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <Imagenes name="../img/logo.svg" />
+
             {featuredimage ? (
               <div className="featured-thumbnail">
                 <PreviewCompatibleImage
