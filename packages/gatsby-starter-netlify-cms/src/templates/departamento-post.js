@@ -39,7 +39,12 @@ export const DepartamentoPostTemplate = ({
                 />
               </div>
             ) : null}
-            <p>{description}</p>
+
+            <div
+              className={"description"}
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
