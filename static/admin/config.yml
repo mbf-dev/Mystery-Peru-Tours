@@ -33,6 +33,7 @@ collections:
           name: "dir",
           widget: "string",
           default: "{{featuredimage}}",
+          required: false,
         }
       - { label: "Location", name: "location", widget: "map" }
       - { label: "Body", name: "body", widget: "markdown" }
