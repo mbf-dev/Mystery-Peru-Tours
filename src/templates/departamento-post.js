@@ -1,12 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { kebabCase } from "lodash";
-import Helmet from "react-helmet";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { kebabCase } from 'lodash'
+import Helmet from 'react-helmet'
+import { graphql, Link } from 'gatsby'
+import Layout from '../components/Layout'
+import Content, { HTMLContent } from '../components/Content'
 
-import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+
+const Icon = ({ filename, classname }) => {
+  const req = require.context(`../img`, true, /\.svg$/)
+  const IconTag = req(`./${filename}.svg`)
+  console.log(IconTag)
+  return <IconTag className={classname} />
+}
 
 export const DepartamentoPostTemplate = ({
   content,
@@ -15,14 +22,13 @@ export const DepartamentoPostTemplate = ({
   tags,
   title,
   featuredimage,
-  helmet
+  helmet,
 }) => {
-  const PostContent = contentComponent || Content;
+  const PostContent = contentComponent || Content
 
-  let img = "";
   return (
     <section className="section">
-      {helmet || ""}
+      {helmet || ''}
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
@@ -30,12 +36,15 @@ export const DepartamentoPostTemplate = ({
               {title}
             </h1>
 
+            <Icon filename={`logo`} classname={'dfsfgdgdf'} />
+            <Icon filename={`logo`} classname={'dfsfgdgdf'} />
+
             {featuredimage ? (
               <div className="featured-thumbnail">
                 <PreviewCompatibleImage
                   imageInfo={{
                     image: featuredimage,
-                    alt: `featured image thumbnail for post ${title}`
+                    alt: `featured image thumbnail for post ${title}`,
                   }}
                 />
               </div>
@@ -58,19 +67,19 @@ export const DepartamentoPostTemplate = ({
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 DepartamentoPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.object
-};
+  helmet: PropTypes.object,
+}
 
 const DepartamentoPost = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data
 
   return (
     <Layout>
@@ -93,16 +102,16 @@ const DepartamentoPost = ({ data }) => {
         featuredimage={post.frontmatter.featuredimage}
       />
     </Layout>
-  );
-};
+  )
+}
 
 DepartamentoPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object
-  })
-};
+    markdownRemark: PropTypes.object,
+  }),
+}
 
-export default DepartamentoPost;
+export default DepartamentoPost
 
 export const pageQuery = graphql`
   query DepartamentoPostByID($id: String!) {
@@ -126,4 +135,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

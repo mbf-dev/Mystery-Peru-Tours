@@ -28,6 +28,12 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
       - { label: "Featured Image", name: "featuredimage", widget: image }
+      - {
+          label: "dir",
+          name: "dir",
+          widget: "string",
+          default: "{{featuredimage}}",
+        }
       - { label: "Location", name: "location", widget: "map" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
