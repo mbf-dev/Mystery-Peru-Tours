@@ -30,7 +30,7 @@ collections:
       - { label: "Featured Image", name: "featuredimage", widget: image }
       - { label: "Location", name: "location", widget: "map" }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Tags", name: "tags", widget: "list", required:"false" }
 
   - name: "blog"
     label: "Blog"

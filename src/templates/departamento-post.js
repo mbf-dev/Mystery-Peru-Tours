@@ -6,16 +6,25 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
+async function Imagenes(name) {
+  const { default: Hello } = await import("../img/logo.svg");
+
+  return <img src={Hello} />;
+}
+
 export const DepartamentoPostTemplate = ({
   content,
   contentComponent,
   description,
   tags,
   title,
+  featuredimage,
   helmet
 }) => {
   const PostContent = contentComponent || Content;
 
+  let img = "";
   return (
     <section className="section">
       {helmet || ""}
@@ -25,6 +34,17 @@ export const DepartamentoPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
+            <Imagenes name="../img/logo.svg" />
+            {featuredimage ? (
+              <div className="featured-thumbnail">
+                <PreviewCompatibleImage
+                  imageInfo={{
+                    image: featuredimage,
+                    alt: `featured image thumbnail for post ${title}`
+                  }}
+                />
+              </div>
+            ) : null}
             <p>{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
@@ -66,6 +86,7 @@ const DepartamentoPost = ({ data }) => {
         helmet={
           <Helmet titleTemplate="%s | Departamento">
             <title>{`${post.frontmatter.title}`}</title>
+
             <meta
               name="description"
               content={`${post.frontmatter.description}`}
@@ -74,6 +95,7 @@ const DepartamentoPost = ({ data }) => {
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        featuredimage={post.frontmatter.featuredimage}
       />
     </Layout>
   );
@@ -97,6 +119,15 @@ export const pageQuery = graphql`
         title
         description
         tags
+        featuredimage {
+          extension
+          publicURL
+          childImageSharp {
+            fluid(maxWidth: 120, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
