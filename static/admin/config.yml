@@ -284,3 +284,14 @@ collections:
           - { label: "Dirección", name: "direccion", widget: string }
           - { label: "Teléfono", name: "phone_primay", widget: string }
           - { label: "Correo", name: "email_primary", widget: string }
+      - file: "src/pages/setting/menu.md"
+        label: "Menu"
+        name: "menu"
+        fields:
+          - { label: "Nombre", name: "Nombre", widget: string }
+          - {
+              name: "test_widget",
+              label: "Test Widget",
+              widget: "test",
+              collections: ["presentations", "other"],
+            }

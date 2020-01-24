@@ -5,7 +5,7 @@ exports.GatsbyImageColors = void 0;
 
 var _gatsby = require("gatsby");
 
-const GatsbyImageColors = _gatsby.graphql`
+const GatsbyImageColors = (0, _gatsby.graphql)`
   fragment GatsbyImageColors on FileColors {
     vibrant
     darkVibrant

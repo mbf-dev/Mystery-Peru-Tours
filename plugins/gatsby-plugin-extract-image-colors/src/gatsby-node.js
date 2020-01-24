@@ -27,17 +27,16 @@ exports.onCreateNode = async ({ node, actions }, pluginOptions) => {
     // Transform the new node here and create a new node or
     // create a new node field.
     console.log("SVGGGGGGGGGGGGG  " + node.absolutePath);
-    await Vibrant.from(node.absolutePath).getPalette((err, palette) => {
-      const colors = {
-        vibrant: "222222222222222222",
-        darkVibrant: getHex(palette.DarkVibrant._rgb),
-        lightVibrant: getHex(palette.LightVibrant._rgb),
-        muted: getHex(palette.Muted._rgb),
-        darkMuted: getHex(palette.DarkMuted._rgb),
-        lightMuted: getHex(palette.LightMuted._rgb)
-      };
-      node.colors = "Siiiiiiiissssssssssssii";
-    });
+
+    const colors = {
+      vibrant: "222222222222222222",
+      darkVibrant: "222222222222222222",
+      lightVibrant: "222222222222222222",
+      muted: "222222222222222222",
+      darkMuted: "222222222222222222",
+      lightMuted: "222222222222222222"
+    };
+    node.colors = colors;
   }
 };
 

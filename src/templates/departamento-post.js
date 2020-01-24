@@ -7,7 +7,7 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
-import ImageWithBackground from "../components/ImageWithBackground";
+//import ImageWithBackground from "../components/ImageWithBackground";
 
 export const DepartamentoPostTemplate = ({
   content,
@@ -16,7 +16,8 @@ export const DepartamentoPostTemplate = ({
   tags,
   title,
   featuredimage,
-  helmet
+  helmet,
+  svg
 }) => {
   const PostContent = contentComponent || Content;
 
@@ -29,7 +30,7 @@ export const DepartamentoPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <ImageWithBackground />
+
             {featuredimage ? (
               <div className="featured-thumbnail">
                 <PreviewCompatibleImage
@@ -43,7 +44,7 @@ export const DepartamentoPostTemplate = ({
 
             <div
               className={"description"}
-              dangerouslySetInnerHTML={{ __html: description }}
+              dangerouslySetInnerHTML={{ __html: svg }}
             />
 
             <PostContent content={content} />
@@ -96,6 +97,7 @@ const DepartamentoPost = ({ data }) => {
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
         featuredimage={post.frontmatter.featuredimage}
+        svg={post.frontmatter.featuredimage.svg.optimized}
       />
     </Layout>
   );
@@ -119,7 +121,11 @@ export const pageQuery = graphql`
         title
         description
         tags
+
         featuredimage {
+          svg {
+            optimized
+          }
           extension
           publicURL
           childImageSharp {
