@@ -293,5 +293,5 @@ collections:
               name: "test_widget",
               label: "Test Widget",
               widget: "test",
-              collections: ["presentations", "other"],
+              collections: ["departamento"],
             }
