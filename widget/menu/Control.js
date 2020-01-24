@@ -74,6 +74,8 @@ export default class Control extends React.Component {
     return value.map((item, index) => {
       let children = item.get(FIELD_CHILDREN);
 
+      alert("dsfsdfsddddf");
+
       if (children !== undefined && children.size >= 0) {
         const parent = item.get("title");
         const childrenItems = children.map((child, i) => {
